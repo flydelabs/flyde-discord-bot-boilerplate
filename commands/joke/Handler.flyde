@@ -1,0 +1,220 @@
+imports:
+  "@flyde/stdlib":
+    - GET Request
+    - Get Attribute
+    - Delay
+part:
+  instances:
+    - pos:
+        x: -391.6885209655761
+        y: 30.204555053710948
+      id: Discord Interaction Reply-62045b0
+      inputConfig: {}
+      part:
+        id: Discord Interaction Reply
+        inputs:
+          reply:
+            mode: required
+        outputs: {}
+        instances:
+          - pos:
+              x: -308.18037277221674
+              y: 25.250911254882823
+            id: Inline-value-interaction.rep-yu045r7
+            inputConfig: {}
+            part:
+              id: Inline-value-interaction.rep
+              inputs:
+                reply:
+                  mode: required
+              outputs:
+                value:
+                  delayed: false
+              runFnRawCode: const result = (interaction.reply(inputs.reply));
+                Promise.resolve(result).then(val => outputs.value.next(val))
+              customViewCode: interaction.reply(inputs.reply)
+              dataBuilderSource: aW50ZXJhY3Rpb24ucmVwbHkoaW5wdXRzLnJlcGx5KQ==
+              templateType: value
+              completionOutputs:
+                - value
+              defaultStyle:
+                size: regular
+                icon: code
+                cssOverride:
+                  fontFamily: monospace
+                  fontWeight: "500"
+              description: Custom inline value
+        defaultStyle:
+          size: large
+          color: "#9b5de5"
+        inputsPosition:
+          reply:
+            x: -105.83333791731773
+            y: -51.66664829960643
+        outputsPosition: {}
+        connections:
+          - from:
+              insId: __this
+              pinId: reply
+            to:
+              insId: Inline-value-interaction.rep-yu045r7
+              pinId: reply
+    - pos:
+        x: -124.45225154585773
+        y: -387.72633938167775
+      id: Get Joke-kh445ht
+      inputConfig: {}
+      part:
+        id: Get Joke
+        inputs: {}
+        outputs:
+          data:
+            delayed: false
+        instances:
+          - id: clj641aul00034565tb97fsmp
+            partId: GET Request
+            inputConfig:
+              url:
+                mode: static
+                value: https://v2.jokeapi.dev/joke/any?safe-mode&type=twopart
+            pos:
+              x: -158.65491645231123
+              y: -417.53281365105084
+        defaultStyle:
+          size: large
+          color: "#ff7f00"
+        inputsPosition: {}
+        outputsPosition:
+          data:
+            x: -50.882724866600505
+            y: -216.24718229705954
+        connections:
+          - from:
+              insId: clj641aul00034565tb97fsmp
+              pinId: data
+            to:
+              insId: __this
+              pinId: data
+        completionOutputs:
+          - data
+    - pos:
+        x: -42.73090988159174
+        y: 273.7694735717773
+      id: Discord Interaction Follow-up-op04576
+      inputConfig: {}
+      part:
+        id: Discord Interaction Follow-up
+        inputs:
+          reply:
+            mode: required
+        outputs: {}
+        instances:
+          - id: Inline-value-interaction.rep-yu045r7
+            part:
+              id: Inline-value-interaction.fol
+              inputs:
+                reply:
+                  mode: required
+              outputs:
+                value:
+                  delayed: false
+              runFnRawCode: const result = (interaction.followUp(inputs.reply));
+                Promise.resolve(result).then(val => outputs.value.next(val))
+              customViewCode: interaction.followUp(inputs.reply)
+              dataBuilderSource: aW50ZXJhY3Rpb24uZm9sbG93VXAoaW5wdXRzLnJlcGx5KQ==
+              templateType: value
+              completionOutputs:
+                - value
+              defaultStyle:
+                size: regular
+                icon: code
+                cssOverride:
+                  fontFamily: monospace
+                  fontWeight: "500"
+              description: Custom inline value
+            inputConfig: {}
+            pos:
+              x: 31.061021270752008
+              y: 8.431056518554698
+        defaultStyle:
+          size: large
+          color: "#9b5de5"
+        inputsPosition:
+          reply:
+            x: 199.01250929115892
+            y: -125.17502734582547
+        outputsPosition: {}
+        connections:
+          - from:
+              pinId: reply
+              insId: __this
+            to:
+              insId: Inline-value-interaction.rep-yu045r7
+              pinId: reply
+    - pos:
+        x: -246.58018310546873
+        y: -150.04015869140625
+      id: clj6466j600014565vpuvo8su
+      inputConfig:
+        attribute:
+          mode: static
+          value: setup
+      partId: Get Attribute
+    - pos:
+        x: 94.65165223937856
+        y: -62.01421661644764
+      id: clj646oxb00024565gzhc0v5s
+      inputConfig:
+        delay:
+          mode: static
+          value: 3000
+      partId: Delay
+    - pos:
+        x: 8.983385009765641
+        y: -203.63049072265625
+      id: HelloWorld-al345rf
+      inputConfig:
+        attribute:
+          mode: static
+          value: delivery
+      partId: Get Attribute
+  connections:
+    - from:
+        insId: Get Joke-kh445ht
+        pinId: data
+      to:
+        insId: clj6466j600014565vpuvo8su
+        pinId: object
+    - from:
+        insId: clj6466j600014565vpuvo8su
+        pinId: value
+      to:
+        insId: Discord Interaction Reply-62045b0
+        pinId: reply
+    - from:
+        insId: Get Joke-kh445ht
+        pinId: data
+      to:
+        insId: HelloWorld-al345rf
+        pinId: object
+    - from:
+        insId: HelloWorld-al345rf
+        pinId: value
+      to:
+        insId: clj646oxb00024565gzhc0v5s
+        pinId: value
+    - from:
+        insId: clj646oxb00024565gzhc0v5s
+        pinId: delayedValue
+      to:
+        insId: Discord Interaction Follow-up-op04576
+        pinId: reply
+  id: HelloWorld
+  inputs: {}
+  outputs: {}
+  inputsPosition: {}
+  outputsPosition:
+    result:
+      x: -23.264428942324532
+      y: 237.25953921502617
+  completionOutputs: []

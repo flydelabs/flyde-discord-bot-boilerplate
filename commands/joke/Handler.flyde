@@ -98,8 +98,8 @@ part:
         completionOutputs:
           - data
     - pos:
-        x: -42.73090988159174
-        y: 273.7694735717773
+        x: -66.41203170776362
+        y: 253.7470619869232
       id: Discord Interaction Follow-up-op04576
       inputConfig: {}
       part:
@@ -161,8 +161,8 @@ part:
           value: setup
       partId: Get Attribute
     - pos:
-        x: 94.65165223937856
-        y: -62.01421661644764
+        x: 75.31473817687856
+        y: -82.21485443383045
       id: clj646oxb00024565gzhc0v5s
       inputConfig:
         delay:
@@ -179,17 +179,17 @@ part:
           value: delivery
       partId: Get Attribute
     - pos:
-        x: 330.55630769592153
-        y: -35.14782257347889
+        x: 243.56515779357778
+        y: 141.06064109534435
       id: HelloWorld-un045ze
       inputConfig:
         delay:
           mode: static
-          value: 3000
+          value: 7000
       partId: Delay
     - pos:
-        x: 304.33628601074224
-        y: -235.93900146484376
+        x: 190.73109191894537
+        y: 25.503688430786127
       id: Inline-value-Hey Iris!-7c145ib
       inputConfig: {}
       part:
@@ -249,6 +249,12 @@ part:
       to:
         insId: HelloWorld-un045ze
         pinId: value
+    - from:
+        insId: clj646oxb00024565gzhc0v5s
+        pinId: delayedValue
+      to:
+        insId: Inline-value-Hey Iris!-7c145ib
+        pinId: __trigger
     - from:
         insId: HelloWorld-un045ze
         pinId: delayedValue

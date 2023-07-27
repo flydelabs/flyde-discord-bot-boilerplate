@@ -1,3 +1,14 @@
+<div align="center">
+<a href="https://flyde.dev">Flyde</a> is a powerful visual flow-based programming toolkit that enables you to create and edit code using a visual flow-based programming interface. With Flyde, you can build backend flows quickly and intuitively, making it ideal for novice developers, non-developer technical teams, and experienced developers who want to prototype and test ideas fast.
+<br/>
+
+<br/>
+  
+[![Official Website](https://img.shields.io/badge/Official%20Website-flyde.dev-blue?style=flat&logo=world&logoColor=white)](https://flyde.dev.com)
+[![Discord Follow](https://dcbadge.vercel.app/api/server/x7t4tjZQP8?style=flat)](https://discord.com/invite/x7t4tjZQP8)
+[![GitHub Repo stars](https://img.shields.io/github/stars/flydehq/flyde?style=social)](https://github.com/flydehq/flyde)
+[![@FlydeDev](https://img.shields.io/twitter/follow/FlydeDev?style=social)](https://twitter.com/FlydeDev)
+
 # Jokes Discord Bot - Flyde Example
 
 This is a simple Discord bot using [Flyde](https://www.flyde.dev) and [Discord.js](https://discord.js.org/).
@@ -40,3 +51,5 @@ This example comes with 2 commands:
 ## Deployment
 
 As this is a regular Node.js project, you can deploy it to any Node.js hosting service. We've tested it on [Railway](https://railway.app) and it works great!
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/I6wHQZ?referralCode=24MQpO)

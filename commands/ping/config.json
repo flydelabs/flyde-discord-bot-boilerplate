@@ -1,0 +1,5 @@
+{
+  "name": "ping",
+  "description": "Sends a ping to the bot.",
+  "options": []
+}

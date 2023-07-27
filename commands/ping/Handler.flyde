@@ -1,0 +1,98 @@
+imports:
+  "@flyde/stdlib": []
+part:
+  instances:
+    - pos:
+        x: -295.9586625671386
+        y: 144.0117335510254
+      id: Discord Interaction Reply-62045b0
+      inputConfig: {}
+      part:
+        id: Discord Interaction Reply
+        inputs:
+          reply:
+            mode: required
+        outputs: {}
+        instances:
+          - pos:
+              x: -308.18037277221674
+              y: 25.250911254882823
+            id: Inline-value-interaction.rep-yu045r7
+            inputConfig: {}
+            part:
+              id: Inline-value-interaction.rep
+              inputs:
+                reply:
+                  mode: required
+              outputs:
+                value:
+                  delayed: false
+              runFnRawCode: const result = (interaction.reply(inputs.reply));
+                Promise.resolve(result).then(val => outputs.value.next(val))
+              customViewCode: interaction.reply(inputs.reply)
+              dataBuilderSource: aW50ZXJhY3Rpb24ucmVwbHkoaW5wdXRzLnJlcGx5KQ==
+              templateType: value
+              completionOutputs:
+                - value
+              defaultStyle:
+                size: regular
+                icon: code
+                cssOverride:
+                  fontFamily: monospace
+                  fontWeight: "500"
+              description: Custom inline value
+        defaultStyle:
+          size: large
+          color: "#9b5de5"
+        inputsPosition:
+          reply:
+            x: -105.83333791731773
+            y: -51.66664829960643
+        outputsPosition: {}
+        connections:
+          - from:
+              insId: __this
+              pinId: reply
+            to:
+              insId: Inline-value-interaction.rep-yu045r7
+              pinId: reply
+    - pos:
+        x: -210.0234375
+        y: -71.30099121093747
+      id: Inline-value-Hello-2k145nu
+      inputConfig: {}
+      part:
+        id: Inline-value-Pong
+        inputs: {}
+        outputs:
+          value:
+            delayed: false
+        runFnRawCode: const result = ('Pong'); Promise.resolve(result).then(val =>
+          outputs.value.next(val))
+        customViewCode: "'Pong'"
+        dataBuilderSource: J1Bvbmcn
+        templateType: value
+        completionOutputs:
+          - value
+        defaultStyle:
+          size: regular
+          icon: code
+          cssOverride:
+            fontFamily: monospace
+            fontWeight: "500"
+        description: Custom inline value
+  connections:
+    - from:
+        insId: Inline-value-Hello-2k145nu
+        pinId: value
+      to:
+        insId: Discord Interaction Reply-62045b0
+        pinId: reply
+  id: PingHandler
+  inputs: {}
+  outputs: {}
+  inputsPosition: {}
+  outputsPosition:
+    result:
+      x: -23.264428942324532
+      y: 237.25953921502617

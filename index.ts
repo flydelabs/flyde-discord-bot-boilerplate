@@ -1,6 +1,6 @@
 import assert from "assert";
 import { Client, GatewayIntentBits, REST, Routes } from "discord.js";
-import { commands } from "./load-commands.js";
+import { commands } from "./scripts/load-commands.ts";
 
 import { loadFlow } from "@flyde/runtime";
 
@@ -14,11 +14,21 @@ import { join } from "path";
 
 const { DISCORD_BOT_TOKEN, DISCORD_CLIENT_ID } = process.env;
 
+["log", "info", "warn", "error"].forEach((method) => {
+  const console = global.console as any;
+  const original = console[method];
+  console[method] = function () {
+    let error = new Error();
+    let stack = error.stack?.split("\n")[2].trim(); // get caller
+    let prefix = `[${new Date().toLocaleTimeString()} - ${stack}]`;
+
+    // call original method with modified arguments
+    original.apply(console, [prefix].concat(Array.from(arguments)));
+  };
+});
+
 assert(DISCORD_BOT_TOKEN, "Missing DISCORD_BOT_TOKEN env var");
 assert(DISCORD_CLIENT_ID, "Missing DISCORD_CLIENT_ID env var");
-
-console.log({ handerPath: commands[0].handlerPath });
-const execute = await loadFlow(commands[0].handlerPath, currDir);
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -55,9 +65,13 @@ client.on("interactionCreate", async (interaction) => {
     return;
   }
 
+  console.info(`Running command: ${interaction.commandName}`);
+
   const execute = await loadFlow(command.handlerPath, currDir);
 
-  const result = await execute({}, { extraContext: { interaction } }).result;
+  await execute({}, { extraContext: { interaction } }).result;
+
+  console.info(`Finished running command: ${interaction.commandName}`);
 });
 
 client.login(DISCORD_BOT_TOKEN);

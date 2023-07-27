@@ -1,10 +1,16 @@
 import * as fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { DiscordCommandData } from "./generate-command.ts";
 
 const __filename = fileURLToPath(import.meta.url);
 
-const commandsDir = path.join(__filename, "../commands");
+export interface CommandData {
+  handlerPath: string;
+  config: DiscordCommandData;
+}
+
+const commandsDir = path.join(__filename, "../../commands");
 export const commands = fs
   .readdirSync(commandsDir)
   .filter((file) => fs.statSync(path.join(commandsDir, file)).isDirectory())

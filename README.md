@@ -1,8 +1,9 @@
 <div align="center">
 <a href="https://flyde.dev">Flyde</a> is a powerful visual flow-based programming toolkit that enables you to create and edit code using a visual flow-based programming interface. With Flyde, you can build backend flows quickly and intuitively, making it ideal for novice developers, non-developer technical teams, and experienced developers who want to prototype and test ideas fast.
 <br/>
-
 <br/>
+
+</div>
   
 [![Official Website](https://img.shields.io/badge/Official%20Website-flyde.dev-blue?style=flat&logo=world&logoColor=white)](https://flyde.dev.com)
 [![Discord Follow](https://dcbadge.vercel.app/api/server/x7t4tjZQP8?style=flat)](https://discord.com/invite/x7t4tjZQP8)
@@ -50,6 +51,12 @@ This example comes with 2 commands:
 
 ## Deployment
 
-As this is a regular Node.js project, you can deploy it to any Node.js hosting service. We've tested it on [Railway](https://railway.app) and it works great!
+A key design goal of Flyde is to be as integrable as possible with existing Node.js projects.
+Flyde flows are YAML files behind the scenes, which are loaded and executed using a library.
+This means that you can use Flyde in any Node.js project, and deploy it to any Node.js hosting service!
+
+We've tested it on [Railway](https://railway.app) and it works great!
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/I6wHQZ?referralCode=24MQpO)
+
+_Note:_ accessing the visual debugger from a remote deployment is not supported yet. You can still use the visual debugger locally, and use the logs to debug your flows remotely.

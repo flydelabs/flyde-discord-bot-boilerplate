@@ -6,5 +6,5 @@
     ],
     "ext": "ts,json,flyde,env",
     "ignore": [],
-    "exec": "NODE_OPTIONS=\"--dns-result-order=ipv4first\" ts-node-esm ./index.ts"
+    "exec": "cross-env NODE_OPTIONS=\"--dns-result-order=ipv4first\" ts-node-esm ./index.ts"
 }

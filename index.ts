@@ -56,8 +56,7 @@ client.on("interactionCreate", async (interaction) => {
 
   const execute = await loadFlow(command.handlerPath, currDir);
 
-  await execute({}, { extraContext: { interaction }, _debugger: undefined })
-    .result;
+  await execute({}, { extraContext: { interaction } }).result;
 
   console.info(`Finished running command: ${interaction.commandName}`);
 });

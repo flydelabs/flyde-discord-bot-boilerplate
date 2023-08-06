@@ -102,27 +102,27 @@ export async function promptCommandData(
 
   // ask for options until the user stops
   const options: DiscordCommandOption[] = [];
-  while (true) {
-    const { addOption } = await prompts({
-      type: "confirm",
-      name: "addOption",
-      message: `Would you like to add ${
-        options.length === 0 ? "an" : "another"
-      } option?`,
-    });
-    if (!addOption) {
-      break;
-    }
-    try {
-      const optionData = await promptCommandOption(options);
-      options.push(optionData);
-      console.log(
-        `Added option ${optionData.name}. There are a total of ${options.length} options.`
-      );
-    } catch (e) {
-      console.error(`Error adding command: ${e}`);
-    }
-  }
+  // while (true) {
+  //   const { addOption } = await prompts({
+  //     type: "confirm",
+  //     name: "addOption",
+  //     message: `Would you like to add ${
+  //       options.length === 0 ? "an" : "another"
+  //     } option?`,
+  //   });
+  //   if (!addOption) {
+  //     break;
+  //   }
+  //   try {
+  //     const optionData = await promptCommandOption(options);
+  //     options.push(optionData);
+  //     console.log(
+  //       `Added option ${optionData.name}. There are a total of ${options.length} options.`
+  //     );
+  //   } catch (e) {
+  //     console.error(`Error adding command: ${e}`);
+  //   }
+  // }
 
   return {
     name,
@@ -146,7 +146,11 @@ export async function generateCommandFile(
   writeFileSync(configPath, configJson, "utf-8");
 
   // copy the template handler
-  const templateHandlerPath = path.join(__dirname, "_Handler.flyde");
+  const templateHandlerPath = path.join(
+    __dirname,
+    "command-template",
+    "Handler.flyde"
+  );
   copyFileSync(templateHandlerPath, handlerPath);
 
   console.log(

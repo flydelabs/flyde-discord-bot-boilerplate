@@ -1,0 +1,296 @@
+imports:
+  "@flyde/stdlib":
+    - Get Global State
+    - Boolean Split
+    - Set Global State
+part:
+  instances:
+    - pos:
+        x: -384.5135628836497
+        y: -287.7733894566129
+      id: clktuq38o00004667pz3ycyuh
+      inputConfig:
+        key:
+          mode: static
+          value: replySent
+        defaultValue:
+          mode: static
+          value: false
+      partId: Get Global State
+    - pos:
+        x: -298.67665893554687
+        y: -86.28725006103517
+      id: clktuqb3z00014667nmrjh0y6
+      inputConfig:
+        trueValue:
+          mode: queue
+      partId: Boolean Split
+    - pos:
+        x: 25.47881469726562
+        y: 131.55490020751955
+      id: Inline-value-interaction.rep-yq2478w
+      inputConfig: {}
+      visibleInputs:
+        - reply
+        - __trigger
+      part:
+        id: Inline-value-interaction.rep
+        inputs:
+          reply:
+            mode: required
+        outputs:
+          value:
+            delayed: false
+        runFnRawCode: const result = (interaction.reply(inputs.reply));
+          Promise.resolve(result).then(val => outputs.value.next(val))
+        customViewCode: interaction.reply(inputs.reply)
+        dataBuilderSource: aW50ZXJhY3Rpb24ucmVwbHkoaW5wdXRzLnJlcGx5KQ==
+        templateType: value
+        completionOutputs:
+          - value
+        defaultStyle:
+          size: regular
+          icon: code
+          cssOverride:
+            fontFamily: monospace
+            fontWeight: "500"
+        description: Custom inline value
+      style:
+        size: large
+        icon: code
+        color: "#9b5de5"
+        cssOverride:
+          fontFamily: monospace
+          fontWeight: "500"
+    - pos:
+        x: -419.3273889160156
+        y: 332.72270133972165
+      id: Inline-value-interaction.fol-1g047b4
+      inputConfig: {}
+      visibleInputs:
+        - reply
+        - __trigger
+      part:
+        id: Inline-value-interaction.fol
+        inputs:
+          reply:
+            mode: required
+        outputs:
+          value:
+            delayed: false
+        runFnRawCode: const result = (interaction.followUp(inputs.reply));
+          Promise.resolve(result).then(val => outputs.value.next(val))
+        customViewCode: interaction.followUp(inputs.reply)
+        dataBuilderSource: aW50ZXJhY3Rpb24uZm9sbG93VXAoaW5wdXRzLnJlcGx5KQ==
+        templateType: value
+        completionOutputs:
+          - value
+        defaultStyle:
+          size: regular
+          icon: code
+          cssOverride:
+            fontFamily: monospace
+            fontWeight: "500"
+        description: Custom inline value
+      style:
+        size: large
+        icon: code
+        color: "#00bbf9"
+        cssOverride:
+          fontFamily: monospace
+          fontWeight: "500"
+    - pos:
+        x: 389.62080966471524
+        y: 316.0452420585757
+      id: clktus68r00024667lldhgvg8
+      inputConfig:
+        key:
+          mode: static
+          value: replySent
+        value:
+          mode: static
+          value: true
+      visibleInputs:
+        - key
+        - value
+        - __trigger
+      partId: Set Global State
+      style:
+        size: regular
+        color: "#f15bb5"
+    - pos:
+        x: 133.19078050885875
+        y: 502.0768971906389
+      id: Transform To-3v047wd
+      inputConfig: {}
+      part:
+        id: Transform To
+        inputs:
+          to:
+            mode: required
+          from:
+            mode: required
+        outputs:
+          value:
+            delayed: false
+        instances:
+          - pos:
+              x: 44.81751770019531
+              y: 400.6966526222229
+            id: Inline-value-inputs.value-bw347ir
+            inputConfig: {}
+            visibleInputs:
+              - input
+              - __trigger
+            part:
+              id: Inline-value-inputs.input
+              inputs:
+                input:
+                  mode: required
+              outputs:
+                value:
+                  delayed: false
+              runFnRawCode: const result = (inputs.input); Promise.resolve(result).then(val =>
+                outputs.value.next(val))
+              customViewCode: inputs.input
+              dataBuilderSource: aW5wdXRzLmlucHV0
+              templateType: value
+              completionOutputs:
+                - value
+              defaultStyle:
+                size: regular
+                icon: code
+                cssOverride:
+                  fontFamily: monospace
+                  fontWeight: "500"
+              description: Custom inline value
+        defaultStyle:
+          size: large
+          color: "#00f5d4"
+        inputsPosition:
+          input:
+            x: 0
+            y: 0
+          __trigger:
+            x: 100
+            y: 0
+          to:
+            x: 31.131814813763125
+            y: -8.592651075331712
+          fro:
+            x: 0
+            y: 0
+          from:
+            x: 144.7530854317468
+            y: -5.7138909080928775
+        outputsPosition:
+          value:
+            x: 55.86983852195844
+            y: 668.558107173925
+        connections:
+          - from:
+              insId: Inline-value-inputs.value-bw347ir
+              pinId: value
+            to:
+              insId: __this
+              pinId: value
+          - from:
+              pinId: to
+              insId: __this
+            to:
+              insId: Inline-value-inputs.value-bw347ir
+              pinId: input
+          - from:
+              pinId: from
+              insId: __this
+            to:
+              insId: Inline-value-inputs.value-bw347ir
+              pinId: __trigger
+        completionOutputs:
+          - value
+      style:
+        size: small
+        color: "#00f5d4"
+  connections:
+    - from:
+        insId: clktuq38o00004667pz3ycyuh
+        pinId: value
+      to:
+        insId: clktuqb3z00014667nmrjh0y6
+        pinId: value
+    - from:
+        insId: __this
+        pinId: message
+      to:
+        insId: Inline-value-interaction.rep-yq2478w
+        pinId: reply
+    - from:
+        insId: __this
+        pinId: message
+      to:
+        insId: Inline-value-interaction.fol-1g047b4
+        pinId: reply
+    - from:
+        insId: Inline-value-interaction.fol-1g047b4
+        pinId: value
+      to:
+        insId: __this
+        pinId: response
+    - from:
+        insId: clktuqb3z00014667nmrjh0y6
+        pinId: "false"
+      to:
+        insId: Inline-value-interaction.rep-yq2478w
+        pinId: __trigger
+    - from:
+        insId: clktuqb3z00014667nmrjh0y6
+        pinId: "true"
+      to:
+        insId: Inline-value-interaction.fol-1g047b4
+        pinId: __trigger
+    - from:
+        insId: Inline-value-interaction.rep-yq2478w
+        pinId: value
+      to:
+        insId: clktus68r00024667lldhgvg8
+        pinId: __trigger
+    - from:
+        insId: Transform To-3v047wd
+        pinId: value
+      to:
+        insId: __this
+        pinId: response
+    - from:
+        insId: clktus68r00024667lldhgvg8
+        pinId: setValue
+      to:
+        insId: Transform To-3v047wd
+        pinId: from
+    - from:
+        insId: Inline-value-interaction.rep-yq2478w
+        pinId: value
+      to:
+        insId: Transform To-3v047wd
+        pinId: to
+  id: DiscordReply
+  inputs:
+    message:
+      mode: required
+  outputs:
+    response:
+      delayed: false
+  inputsPosition:
+    message:
+      x: 91.26247101908291
+      y: -450.67707018665453
+  outputsPosition:
+    result:
+      x: -23.264428942324532
+      y: 237.25953921502617
+    response:
+      x: -57.470763547641354
+      y: 814.0672850301144
+  defaultStyle:
+    size: large
+    icon: fa-brands fa-discord
+    color: "#9b5de5"

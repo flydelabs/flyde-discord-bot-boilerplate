@@ -14,19 +14,6 @@ import { join } from "path";
 
 const { DISCORD_BOT_TOKEN, DISCORD_CLIENT_ID } = process.env;
 
-["log", "info", "warn", "error"].forEach((method) => {
-  const console = global.console as any;
-  const original = console[method];
-  console[method] = function () {
-    let error = new Error();
-    let stack = error.stack?.split("\n")[2].trim(); // get caller
-    let prefix = `[${new Date().toLocaleTimeString()} - ${stack}]`;
-
-    // call original method with modified arguments
-    original.apply(console, [prefix].concat(Array.from(arguments)));
-  };
-});
-
 assert(DISCORD_BOT_TOKEN, "Missing DISCORD_BOT_TOKEN env var");
 assert(DISCORD_CLIENT_ID, "Missing DISCORD_CLIENT_ID env var");
 

@@ -1,0 +1,85 @@
+imports:
+  "@flyde/stdlib": []
+  ../../common/DiscordReply.flyde:
+    - DiscordReply
+part:
+  instances:
+    - pos:
+        x: -171.64077758789062
+        y: 85.29705413818363
+      id: Inline-value-Hello-2k145nu
+      inputConfig: {}
+      part:
+        id: Inline-value-Hello, ${input
+        inputs:
+          name:
+            mode: required
+        outputs:
+          value:
+            delayed: false
+        runFnRawCode: const result = (`Hello, ${inputs.name}`);
+          Promise.resolve(result).then(val => outputs.value.next(val))
+        customViewCode: "`Hello, ${inputs.name}`"
+        dataBuilderSource: YEhlbGxvLCAke2lucHV0cy5uYW1lfWA=
+        templateType: value
+        completionOutputs:
+          - value
+        defaultStyle:
+          size: regular
+          icon: code
+          cssOverride:
+            fontFamily: monospace
+            fontWeight: "500"
+        description: Custom inline value
+    - pos:
+        x: -125.96575027948586
+        y: 212.963973471841
+      id: clktwe12b00004667kupmmjct
+      inputConfig: {}
+      partId: DiscordReply
+    - pos:
+        x: -173.38652587890624
+        y: -69.85809631347657
+      id: Inline-value-interaction.use-nu345ub
+      inputConfig: {}
+      part:
+        id: Inline-value-interaction.use
+        inputs: {}
+        outputs:
+          value:
+            delayed: false
+        runFnRawCode: const result = (interaction.user.username);
+          Promise.resolve(result).then(val => outputs.value.next(val))
+        customViewCode: interaction.user.username
+        dataBuilderSource: aW50ZXJhY3Rpb24udXNlci51c2VybmFtZQ==
+        templateType: value
+        completionOutputs:
+          - value
+        defaultStyle:
+          size: regular
+          icon: code
+          cssOverride:
+            fontFamily: monospace
+            fontWeight: "500"
+        description: Custom inline value
+  connections:
+    - from:
+        insId: Inline-value-Hello-2k145nu
+        pinId: value
+      to:
+        insId: clktwe12b00004667kupmmjct
+        pinId: message
+    - from:
+        insId: Inline-value-interaction.use-nu345ub
+        pinId: value
+      to:
+        insId: Inline-value-Hello-2k145nu
+        pinId: name
+  id: CommandHandler
+  inputs: {}
+  outputs: {}
+  inputsPosition: {}
+  outputsPosition:
+    result:
+      x: -23.264428942324532
+      y: 237.25953921502617

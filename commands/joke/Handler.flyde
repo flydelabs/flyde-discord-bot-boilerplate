@@ -3,66 +3,10 @@ imports:
     - GET Request
     - Get Attribute
     - Delay
+  ../../common/DiscordReply.flyde:
+    - DiscordReply
 part:
   instances:
-    - pos:
-        x: -395.23127609252924
-        y: 37.424022216796885
-      id: Discord Interaction Reply-62045b0
-      inputConfig: {}
-      part:
-        id: Discord Interaction Reply
-        inputs:
-          reply:
-            mode: required
-        outputs: {}
-        instances:
-          - pos:
-              x: -308.18037277221674
-              y: 25.250911254882823
-            id: Inline-value-interaction.rep-yu045r7
-            inputConfig: {}
-            part:
-              id: Inline-value-interaction.rep
-              inputs:
-                reply:
-                  mode: required
-              outputs:
-                value:
-                  delayed: false
-              runFnRawCode: const result = (interaction.reply(inputs.reply));
-                Promise.resolve(result).then(val => outputs.value.next(val))
-              customViewCode: interaction.reply(inputs.reply)
-              dataBuilderSource: aW50ZXJhY3Rpb24ucmVwbHkoaW5wdXRzLnJlcGx5KQ==
-              templateType: value
-              completionOutputs:
-                - value
-              defaultStyle:
-                size: regular
-                icon: code
-                cssOverride:
-                  fontFamily: monospace
-                  fontWeight: "500"
-              description: Custom inline value
-        defaultStyle:
-          size: large
-          color: "#9b5de5"
-        inputsPosition:
-          reply:
-            x: -105.83333791731773
-            y: -51.66664829960643
-        outputsPosition: {}
-        connections:
-          - from:
-              insId: __this
-              pinId: reply
-            to:
-              insId: Inline-value-interaction.rep-yu045r7
-              pinId: reply
-      style:
-        size: large
-        icon: fa-brands fa-discord
-        color: "#9b5de5"
     - pos:
         x: -124.45225154585773
         y: -387.72633938167775
@@ -102,64 +46,6 @@ part:
         completionOutputs:
           - data
     - pos:
-        x: 5.692429962158258
-        y: 166.46004416465757
-      id: Discord Interaction Follow-up-op04576
-      inputConfig: {}
-      part:
-        id: Discord Interaction Follow-up
-        inputs:
-          reply:
-            mode: required
-        outputs: {}
-        instances:
-          - id: Inline-value-interaction.rep-yu045r7
-            part:
-              id: Inline-value-interaction.fol
-              inputs:
-                reply:
-                  mode: required
-              outputs:
-                value:
-                  delayed: false
-              runFnRawCode: const result = (interaction.followUp(inputs.reply));
-                Promise.resolve(result).then(val => outputs.value.next(val))
-              customViewCode: interaction.followUp(inputs.reply)
-              dataBuilderSource: aW50ZXJhY3Rpb24uZm9sbG93VXAoaW5wdXRzLnJlcGx5KQ==
-              templateType: value
-              completionOutputs:
-                - value
-              defaultStyle:
-                size: regular
-                icon: code
-                cssOverride:
-                  fontFamily: monospace
-                  fontWeight: "500"
-              description: Custom inline value
-            inputConfig: {}
-            pos:
-              x: 31.061021270752008
-              y: 8.431056518554698
-        defaultStyle:
-          size: large
-          color: "#9b5de5"
-        inputsPosition:
-          reply:
-            x: 199.01250929115892
-            y: -125.17502734582547
-        outputsPosition: {}
-        connections:
-          - from:
-              pinId: reply
-              insId: __this
-            to:
-              insId: Inline-value-interaction.rep-yu045r7
-              pinId: reply
-      style:
-        size: large
-        icon: fa-brands fa-discord
-        color: "#9b5de5"
-    - pos:
         x: -276.44181640625
         y: -156.00573486328125
       id: clj6466j600014565vpuvo8su
@@ -186,6 +72,12 @@ part:
           mode: static
           value: delivery
       partId: Get Attribute
+    - pos:
+        x: -98.89494120148572
+        y: 281.43105040913116
+      id: clktv2y1h00004667aroq4cx4
+      inputConfig: {}
+      partId: DiscordReply
   connections:
     - from:
         insId: Get Joke-kh445ht
@@ -193,12 +85,6 @@ part:
       to:
         insId: clj6466j600014565vpuvo8su
         pinId: object
-    - from:
-        insId: clj6466j600014565vpuvo8su
-        pinId: value
-      to:
-        insId: Discord Interaction Reply-62045b0
-        pinId: reply
     - from:
         insId: Get Joke-kh445ht
         pinId: data
@@ -215,8 +101,14 @@ part:
         insId: clj646oxb00024565gzhc0v5s
         pinId: delayedValue
       to:
-        insId: Discord Interaction Follow-up-op04576
-        pinId: reply
+        insId: clktv2y1h00004667aroq4cx4
+        pinId: message
+    - from:
+        insId: clj6466j600014565vpuvo8su
+        pinId: value
+      to:
+        insId: clktv2y1h00004667aroq4cx4
+        pinId: message
   id: JokeHandler
   inputs: {}
   outputs: {}

@@ -30,7 +30,6 @@ This example comes with 2 commands:
 ### Prerequisites
 
 - Node 16+
-- [pnpm](https://pnpm.io/) - `npm install -g pnpm`
 - The [Flyde VSCode extension](https://marketplace.visualstudio.com/items?itemName=flyde.flyde-vscode)
 - A Discord bot token - [See guide](https://www.writebots.com/discord-bot-token/)
 
@@ -38,12 +37,12 @@ This example comes with 2 commands:
 
 1. Rename `.env.example` to `.env`
 2. Set your discord bot token and client ID in the `.env` file. [See this guide](https://www.writebots.com/discord-bot-token/)
-3. `pnpm install`
-4. `pnpm run dev`
+3. `npm install`
+4. `npm run dev`
 
 ## Adding a new command
 
-1. run `pnpm run new-command`
+1. run `npm run new-command`
 2. Follow the instructions
 3. Once the command folder is created, edit the `Handler.flyde` flow using the Flyde VSCode extension as you wish. [See the Flyde docs](https://www.flyde.dev/docs) for more info.
 4. Restart the bot

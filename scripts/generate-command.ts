@@ -134,7 +134,7 @@ export async function promptCommandData(
 export async function generateCommandFile(
   commandData: DiscordCommandData
 ): Promise<void> {
-  const { name, options } = commandData;
+  const { name, options, description } = commandData;
 
   const commandDir = path.join(__dirname, "../commands", name);
   const configPath = path.join(commandDir, "config.json");
@@ -142,7 +142,7 @@ export async function generateCommandFile(
 
   mkdirSync(commandDir, { recursive: true });
 
-  const configJson = JSON.stringify({ name, options }, null, 2);
+  const configJson = JSON.stringify({ name, options, description }, null, 2);
   writeFileSync(configPath, configJson, "utf-8");
 
   // copy the template handler

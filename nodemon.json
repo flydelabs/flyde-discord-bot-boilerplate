@@ -1,0 +1,10 @@
+{
+    "watch": [
+        "commands",
+        "common",
+        ".env"
+    ],
+    "ext": "ts,json,flyde,env",
+    "ignore": [],
+    "exec": "ts-node-esm ./index.ts"
+}

@@ -3,7 +3,7 @@ imports:
     - Get Global State
     - Boolean Split
     - Set Global State
-part:
+node:
   instances:
     - pos:
         x: -384.5135628836497
@@ -16,7 +16,7 @@ part:
         defaultValue:
           mode: static
           value: false
-      partId: Get Global State
+      nodeId: Get Global State
     - pos:
         x: -298.67665893554687
         y: -86.28725006103517
@@ -24,7 +24,7 @@ part:
       inputConfig:
         trueValue:
           mode: queue
-      partId: Boolean Split
+      nodeId: Boolean Split
     - pos:
         x: 25.47881469726562
         y: 131.55490020751955
@@ -33,7 +33,7 @@ part:
       visibleInputs:
         - reply
         - __trigger
-      part:
+      node:
         id: Inline-value-interaction.rep
         inputs:
           reply:
@@ -70,7 +70,7 @@ part:
       visibleInputs:
         - reply
         - __trigger
-      part:
+      node:
         id: Inline-value-interaction.fol
         inputs:
           reply:
@@ -114,7 +114,7 @@ part:
         - key
         - value
         - __trigger
-      partId: Set Global State
+      nodeId: Set Global State
       style:
         size: regular
         color: "#f15bb5"
@@ -123,7 +123,7 @@ part:
         y: 502.0768971906389
       id: Transform To-3v047wd
       inputConfig: {}
-      part:
+      node:
         id: Transform To
         inputs:
           to:
@@ -142,7 +142,7 @@ part:
             visibleInputs:
               - input
               - __trigger
-            part:
+            node:
               id: Inline-value-inputs.input
               inputs:
                 input:

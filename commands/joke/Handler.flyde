@@ -5,14 +5,14 @@ imports:
     - Delay
   ../../common/DiscordReply.flyde:
     - DiscordReply
-part:
+node:
   instances:
     - pos:
         x: -124.45225154585773
         y: -387.72633938167775
       id: Get Joke-kh445ht
       inputConfig: {}
-      part:
+      node:
         id: Get Joke
         inputs: {}
         outputs:
@@ -20,7 +20,7 @@ part:
             delayed: false
         instances:
           - id: clj641aul00034565tb97fsmp
-            partId: GET Request
+            nodeId: GET Request
             inputConfig:
               url:
                 mode: static
@@ -53,7 +53,7 @@ part:
         attribute:
           mode: static
           value: setup
-      partId: Get Attribute
+      nodeId: Get Attribute
     - pos:
         x: 126.87629213195669
         y: -3.7595474269945157
@@ -62,7 +62,7 @@ part:
         delay:
           mode: static
           value: 3000
-      partId: Delay
+      nodeId: Delay
     - pos:
         x: 50.316606445312516
         y: -162.452939453125
@@ -71,13 +71,13 @@ part:
         attribute:
           mode: static
           value: delivery
-      partId: Get Attribute
+      nodeId: Get Attribute
     - pos:
         x: -98.89494120148572
         y: 281.43105040913116
       id: clktv2y1h00004667aroq4cx4
       inputConfig: {}
-      partId: DiscordReply
+      nodeId: DiscordReply
   connections:
     - from:
         insId: Get Joke-kh445ht

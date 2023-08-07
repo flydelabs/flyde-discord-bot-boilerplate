@@ -3,14 +3,14 @@ imports:
     - Delay
   ../../common/DiscordReply.flyde:
     - DiscordReply
-part:
+node:
   instances:
     - pos:
         x: -190.4080810546875
         y: -263.74679199218747
       id: Inline-value-Hello-2k145nu
       inputConfig: {}
-      part:
+      node:
         id: Inline-value-Hello
         inputs: {}
         outputs:
@@ -35,7 +35,7 @@ part:
         y: -131.47631225585937
       id: Inline-value-World-px245ui
       inputConfig: {}
-      part:
+      node:
         id: Inline-value-World
         inputs: {}
         outputs:
@@ -63,13 +63,13 @@ part:
         delay:
           mode: static
           value: 2000
-      partId: Delay
+      nodeId: Delay
     - pos:
         x: -125.96575027948586
         y: 212.963973471841
       id: clktwe12b00004667kupmmjct
       inputConfig: {}
-      partId: DiscordReply
+      nodeId: DiscordReply
   connections:
     - from:
         insId: Inline-value-World-px245ui

@@ -2,14 +2,14 @@ imports:
   "@flyde/stdlib": []
   ../../common/DiscordReply.flyde:
     - DiscordReply
-part:
+node:
   instances:
     - pos:
         x: -210.0234375
         y: -71.30099121093747
       id: Inline-value-Hello-2k145nu
       inputConfig: {}
-      part:
+      node:
         id: Inline-value-Pong
         inputs: {}
         outputs:
@@ -34,7 +34,7 @@ part:
         y: 123.98514717102051
       id: clktwdsr7000046675ct8t8x4
       inputConfig: {}
-      partId: DiscordReply
+      nodeId: DiscordReply
   connections:
     - from:
         insId: Inline-value-Hello-2k145nu

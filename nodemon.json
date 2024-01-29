@@ -4,7 +4,5 @@
         "common",
         ".env"
     ],
-    "ext": "ts,json,flyde,env",
-    "ignore": [],
-    "exec": "cross-env NODE_OPTIONS=\"--dns-result-order=ipv4first\" ts-node-esm ./index.ts"
+    "ext": "ts,json,flyde,env"
 }

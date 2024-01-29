@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "new-command": "ts-node-esm  scripts/generate-command.ts",
-    "start": "nodemon --exec cross-env NODE_OPTIONS=\"--dns-result-order=ipv4first\" ts-node-esm ./index.ts"
+    "start": "nodemon --exec 'ts-node-esm ./index.ts'"
   },
   "keywords": [],
   "author": "",

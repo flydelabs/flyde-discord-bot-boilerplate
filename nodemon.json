@@ -4,11 +4,7 @@
         "dist",
         ".env"
     ],
-<<<<<<< HEAD
-    "ext": "ts,json,flyde,env"
-=======
     "ext": "js,json,flyde,env",
     "ignore": [],
     "exec": "node dist/index.js"
->>>>>>> 4ffc9da (adapts to latest Flyde changes + drop ts-node usage for better Windows compat)
 }

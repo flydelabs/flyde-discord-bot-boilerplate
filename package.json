@@ -5,8 +5,11 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "new-command": "ts-node-esm  scripts/generate-command.ts",
-    "start": "nodemon --exec 'ts-node-esm ./index.ts'"
+    "build": "tsc",
+    "watch:ts": "tsc -w",
+    "watch:node": "nodemon",
+    "new-command": "npm run build && node  dist/scripts/generate-command.js",
+    "start": "concurrently 'npm run watch:ts' 'npm run watch:node'"
   },
   "keywords": [],
   "author": "",

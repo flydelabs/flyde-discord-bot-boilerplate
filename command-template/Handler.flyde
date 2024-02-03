@@ -1,0 +1,74 @@
+imports:
+  "@flyde/stdlib":
+    - InlineValue
+    - Delay
+  ../../common/DiscordReply.flyde:
+    - DiscordReply
+node:
+  instances:
+    - pos:
+        x: -54.327182617187475
+        y: 137.8512307739258
+      id: o1l2lg815f9brxh6nbj6ks87
+      inputConfig: {}
+      nodeId: Delay__o1l2lg815f9brxh6nbj6ks87
+      macroId: Delay
+      macroData:
+        mode: static
+        timeMs: 3500
+    - pos:
+        x: -165.51889770507813
+        y: 298.42775776906336
+      id: DiscordReply-ky04azg
+      inputConfig: {}
+      nodeId: DiscordReply
+      style:
+        size: large
+        icon: fa-brands fa-discord
+        color: "#9b5de5"
+    - pos:
+        x: -245.61721069335937
+        y: -144.81089311993276
+      id: b08v0g4i72s6pqzvy72ghg9p
+      inputConfig: {}
+      nodeId: InlineValue__b08v0g4i72s6pqzvy72ghg9p
+      macroId: InlineValue
+      macroData:
+        type: string
+        value: Hello
+        label: '"Hello"'
+    - pos:
+        x: -30.217880859375
+        y: -20.280056152343747
+      id: _Handler-hx04aza
+      inputConfig: {}
+      nodeId: InlineValue___Handler-hx04aza
+      macroId: InlineValue
+      macroData:
+        type: string
+        value: World
+        label: '"World"'
+  connections:
+    - from:
+        insId: o1l2lg815f9brxh6nbj6ks87
+        pinId: delayedValue
+      to:
+        insId: DiscordReply-ky04azg
+        pinId: message
+    - from:
+        insId: b08v0g4i72s6pqzvy72ghg9p
+        pinId: value
+      to:
+        insId: DiscordReply-ky04azg
+        pinId: message
+    - from:
+        insId: _Handler-hx04aza
+        pinId: value
+      to:
+        insId: o1l2lg815f9brxh6nbj6ks87
+        pinId: value
+  id: _Handler
+  inputs: {}
+  outputs: {}
+  inputsPosition: {}
+  outputsPosition: {}

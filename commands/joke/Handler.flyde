@@ -1,119 +1,135 @@
 imports:
   "@flyde/stdlib":
-    - GET Request
+    - Http
     - Get Attribute
+    - InlineValue
     - Delay
   ../../common/DiscordReply.flyde:
     - DiscordReply
 node:
   instances:
     - pos:
-        x: -124.45225154585773
-        y: -387.72633938167775
-      id: Get Joke-kh445ht
+        x: -122.38369750976562
+        y: -298.989013671875
+      id: wa0pxv4krgmtx7iyw5tfdkvl
       inputConfig: {}
-      node:
-        id: Get Joke
-        inputs: {}
-        outputs:
-          data:
-            delayed: false
-        instances:
-          - id: clj641aul00034565tb97fsmp
-            nodeId: GET Request
-            inputConfig:
-              url:
-                mode: static
-                value: https://v2.jokeapi.dev/joke/any?safe-mode&type=twopart
-            pos:
-              x: -158.65491645231123
-              y: -417.53281365105084
-        defaultStyle:
-          size: large
-          color: "#ff7f00"
-        inputsPosition: {}
-        outputsPosition:
-          data:
-            x: -50.882724866600505
-            y: -216.24718229705954
-        connections:
-          - from:
-              insId: clj641aul00034565tb97fsmp
-              pinId: data
-            to:
-              insId: __this
-              pinId: data
-        completionOutputs:
-          - data
-    - pos:
-        x: -276.44181640625
-        y: -156.00573486328125
-      id: clj6466j600014565vpuvo8su
-      inputConfig:
-        attribute:
+      nodeId: Http__wa0pxv4krgmtx7iyw5tfdkvl
+      macroId: Http
+      macroData:
+        method:
           mode: static
-          value: setup
+          value: GET
+        url:
+          mode: static
+          value: https://v2.jokeapi.dev/joke/any?safe-mode&type=twopart
+        headers:
+          mode: static
+          value: {}
+        params:
+          mode: static
+          value: {}
+        data:
+          mode: static
+          value: {}
+    - pos:
+        x: -52.05217163085939
+        y: -23.377580566406266
+      id: Get Attribute-wb04azf
+      inputConfig: {}
       nodeId: Get Attribute
     - pos:
-        x: 126.87629213195669
-        y: -3.7595474269945157
-      id: clj646oxb00024565gzhc0v5s
-      inputConfig:
-        delay:
-          mode: static
-          value: 3000
-      nodeId: Delay
+        x: 94.06706298828124
+        y: -153.4913879394531
+      id: fsy1geam6toh58ep5hguafvd
+      inputConfig: {}
+      nodeId: InlineValue__fsy1geam6toh58ep5hguafvd
+      macroId: InlineValue
+      macroData:
+        type: string
+        value: delivery
+        label: '"delivery"'
     - pos:
-        x: 50.316606445312516
-        y: -162.452939453125
-      id: HelloWorld-al345rf
-      inputConfig:
-        attribute:
-          mode: static
-          value: delivery
+        x: -185.78071044921876
+        y: -105.18146850585936
+      id: _Handler-2014a7b
+      inputConfig: {}
+      nodeId: InlineValue___Handler-2014a7b
+      macroId: InlineValue
+      macroData:
+        type: string
+        value: setup
+        label: '"setup"'
+    - pos:
+        x: -321.65287719726564
+        y: -20.645137939453125
+      id: _Handler-s624aud
+      inputConfig: {}
       nodeId: Get Attribute
     - pos:
-        x: -98.89494120148572
-        y: 281.43105040913116
-      id: clktv2y1h00004667aroq4cx4
+        x: -54.327182617187475
+        y: 137.8512307739258
+      id: o1l2lg815f9brxh6nbj6ks87
+      inputConfig: {}
+      nodeId: Delay__o1l2lg815f9brxh6nbj6ks87
+      macroId: Delay
+      macroData:
+        mode: static
+        timeMs: 3500
+    - pos:
+        x: -165.51889770507813
+        y: 298.42775776906336
+      id: DiscordReply-ky04azg
       inputConfig: {}
       nodeId: DiscordReply
+      style:
+        size: large
+        icon: fa-brands fa-discord
+        color: "#9b5de5"
   connections:
     - from:
-        insId: Get Joke-kh445ht
+        insId: wa0pxv4krgmtx7iyw5tfdkvl
         pinId: data
       to:
-        insId: clj6466j600014565vpuvo8su
+        insId: Get Attribute-wb04azf
         pinId: object
     - from:
-        insId: Get Joke-kh445ht
+        insId: fsy1geam6toh58ep5hguafvd
+        pinId: value
+      to:
+        insId: Get Attribute-wb04azf
+        pinId: attribute
+    - from:
+        insId: _Handler-2014a7b
+        pinId: value
+      to:
+        insId: _Handler-s624aud
+        pinId: attribute
+    - from:
+        insId: wa0pxv4krgmtx7iyw5tfdkvl
         pinId: data
       to:
-        insId: HelloWorld-al345rf
+        insId: _Handler-s624aud
         pinId: object
     - from:
-        insId: HelloWorld-al345rf
+        insId: Get Attribute-wb04azf
         pinId: value
       to:
-        insId: clj646oxb00024565gzhc0v5s
+        insId: o1l2lg815f9brxh6nbj6ks87
         pinId: value
     - from:
-        insId: clj646oxb00024565gzhc0v5s
+        insId: o1l2lg815f9brxh6nbj6ks87
         pinId: delayedValue
       to:
-        insId: clktv2y1h00004667aroq4cx4
+        insId: DiscordReply-ky04azg
         pinId: message
     - from:
-        insId: clj6466j600014565vpuvo8su
+        insId: _Handler-s624aud
         pinId: value
       to:
-        insId: clktv2y1h00004667aroq4cx4
+        insId: DiscordReply-ky04azg
         pinId: message
-  id: JokeHandler
+  id: _Handler
   inputs: {}
   outputs: {}
   inputsPosition: {}
-  outputsPosition:
-    result:
-      x: -23.264428942324532
-      y: 237.25953921502617
+  outputsPosition: {}

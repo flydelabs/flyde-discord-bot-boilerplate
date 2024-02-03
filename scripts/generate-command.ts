@@ -3,7 +3,8 @@ import path from "path";
 import prompts from "prompts";
 
 import { fileURLToPath } from "url";
-import { commands } from "./load-commands.ts";
+import { commands } from "../load-commands.js";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -136,7 +137,7 @@ export async function generateCommandFile(
 ): Promise<void> {
   const { name, options, description } = commandData;
 
-  const commandDir = path.join(__dirname, "../commands", name);
+  const commandDir = path.join(__dirname, "../../commands", name);
   const configPath = path.join(commandDir, "config.json");
   const handlerPath = path.join(commandDir, "Handler.flyde");
 
@@ -148,7 +149,7 @@ export async function generateCommandFile(
   // copy the template handler
   const templateHandlerPath = path.join(
     __dirname,
-    "command-template",
+    "../../command-template",
     "Handler.flyde"
   );
   copyFileSync(templateHandlerPath, handlerPath);

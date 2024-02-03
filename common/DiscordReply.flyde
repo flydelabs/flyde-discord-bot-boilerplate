@@ -1,277 +1,238 @@
 imports:
   "@flyde/stdlib":
+    - CodeExpression
     - Get Global State
-    - Boolean Split
+    - InlineValue
+    - Conditional
     - Set Global State
 node:
   instances:
     - pos:
-        x: -384.5135628836497
-        y: -287.7733894566129
-      id: clktuq38o00004667pz3ycyuh
+        x: 7.773286743164078
+        y: 208.0494578396717
+      id: rrzsladq390lg1mutayv6g8p
+      inputConfig: {}
+      visibleInputs:
+        - reply
+        - __trigger
+      nodeId: CodeExpression__rrzsladq390lg1mutayv6g8p
+      macroId: CodeExpression
+      macroData:
+        value: adv.context.interaction.reply(inputs.reply)
+        label: '"interaction.reply(inputs.reply)"'
+    - pos:
+        x: -312.67168701171875
+        y: 207.244814453125
+      id: Example-mh04adr
+      inputConfig: {}
+      visibleInputs:
+        - reply
+        - __trigger
+      nodeId: CodeExpression__Example-mh04adr
+      macroId: CodeExpression
+      macroData:
+        value: adv.context.interaction.followUp(inputs.reply)
+        label: '"interaction.followUp(inputs.reply)"'
+    - pos:
+        x: 47.097568359374975
+        y: -100.17603288298454
+      id: Get Global State-ye14al4
       inputConfig:
-        key:
-          mode: static
-          value: replySent
         defaultValue:
-          mode: static
-          value: false
+          mode: sticky
+        key:
+          mode: sticky
       nodeId: Get Global State
     - pos:
-        x: -298.67665893554687
-        y: -86.28725006103517
-      id: clktuqb3z00014667nmrjh0y6
-      inputConfig:
+        x: 30.76982421874999
+        y: -234.14127092009392
+      id: t5vmev3g9uyojbj1zx8ulx3z
+      inputConfig: {}
+      nodeId: InlineValue__t5vmev3g9uyojbj1zx8ulx3z
+      macroId: InlineValue
+      macroData:
+        type: string
+        value: msgSent
+        label: '"msgSent"'
+    - pos:
+        x: 209.06621215820314
+        y: -234.20781999235953
+      id: j3arzg3xftyxlz9s2exnrqz8
+      inputConfig: {}
+      nodeId: InlineValue__j3arzg3xftyxlz9s2exnrqz8
+      macroId: InlineValue
+      macroData:
+        value: false
+        type: boolean
+        label: "false"
+    - pos:
+        x: -175.95098388671875
+        y: 73.75124006623422
+      id: j6adue3up7p0o88y6uw2nrq2
+      inputConfig: {}
+      nodeId: Conditional__j6adue3up7p0o88y6uw2nrq2
+      macroId: Conditional
+      macroData:
+        compareTo:
+          mode: dynamic
+        propertyPath: ""
+        condition:
+          type: EQUAL
         trueValue:
-          mode: queue
-      nodeId: Boolean Split
+          type: value
+        falseValue:
+          type: value
     - pos:
-        x: 25.47881469726562
-        y: 131.55490020751955
-      id: Inline-value-interaction.rep-yq2478w
-      inputConfig: {}
-      visibleInputs:
-        - reply
-        - __trigger
-      node:
-        id: Inline-value-interaction.rep
-        inputs:
-          reply:
-            mode: required
-        outputs:
-          value:
-            delayed: false
-        runFnRawCode: const result = (interaction.reply(inputs.reply));
-          Promise.resolve(result).then(val => outputs.value.next(val))
-        customViewCode: interaction.reply(inputs.reply)
-        dataBuilderSource: aW50ZXJhY3Rpb24ucmVwbHkoaW5wdXRzLnJlcGx5KQ==
-        templateType: value
-        completionOutputs:
-          - value
-        defaultStyle:
-          size: regular
-          icon: code
-          cssOverride:
-            fontFamily: monospace
-            fontWeight: "500"
-        description: Custom inline value
-      style:
-        size: large
-        icon: code
-        color: "#9b5de5"
-        cssOverride:
-          fontFamily: monospace
-          fontWeight: "500"
-    - pos:
-        x: -419.3273889160156
-        y: 332.72270133972165
-      id: Inline-value-interaction.fol-1g047b4
-      inputConfig: {}
-      visibleInputs:
-        - reply
-        - __trigger
-      node:
-        id: Inline-value-interaction.fol
-        inputs:
-          reply:
-            mode: required
-        outputs:
-          value:
-            delayed: false
-        runFnRawCode: const result = (interaction.followUp(inputs.reply));
-          Promise.resolve(result).then(val => outputs.value.next(val))
-        customViewCode: interaction.followUp(inputs.reply)
-        dataBuilderSource: aW50ZXJhY3Rpb24uZm9sbG93VXAoaW5wdXRzLnJlcGx5KQ==
-        templateType: value
-        completionOutputs:
-          - value
-        defaultStyle:
-          size: regular
-          icon: code
-          cssOverride:
-            fontFamily: monospace
-            fontWeight: "500"
-        description: Custom inline value
-      style:
-        size: large
-        icon: code
-        color: "#00bbf9"
-        cssOverride:
-          fontFamily: monospace
-          fontWeight: "500"
-    - pos:
-        x: 389.62080966471524
-        y: 316.0452420585757
-      id: clktus68r00024667lldhgvg8
+        x: 163.12066162109375
+        y: 430.1887596063008
+      id: Set Global State-co14acm
       inputConfig:
-        key:
-          mode: static
-          value: replySent
         value:
-          mode: static
-          value: true
+          mode: sticky
+        key:
+          mode: sticky
       visibleInputs:
         - key
         - value
         - __trigger
       nodeId: Set Global State
-      style:
-        size: regular
-        color: "#f15bb5"
     - pos:
-        x: 133.19078050885875
-        y: 502.0768971906389
-      id: Transform To-3v047wd
+        x: 25.89155639648436
+        y: 339.9921804428101
+      id: Example-si24azf
       inputConfig: {}
-      node:
-        id: Transform To
-        inputs:
-          to:
-            mode: required
-          from:
-            mode: required
-        outputs:
-          value:
-            delayed: false
-        instances:
-          - pos:
-              x: 44.81751770019531
-              y: 400.6966526222229
-            id: Inline-value-inputs.value-bw347ir
-            inputConfig: {}
-            visibleInputs:
-              - input
-              - __trigger
-            node:
-              id: Inline-value-inputs.input
-              inputs:
-                input:
-                  mode: required
-              outputs:
-                value:
-                  delayed: false
-              runFnRawCode: const result = (inputs.input); Promise.resolve(result).then(val =>
-                outputs.value.next(val))
-              customViewCode: inputs.input
-              dataBuilderSource: aW5wdXRzLmlucHV0
-              templateType: value
-              completionOutputs:
-                - value
-              defaultStyle:
-                size: regular
-                icon: code
-                cssOverride:
-                  fontFamily: monospace
-                  fontWeight: "500"
-              description: Custom inline value
-        defaultStyle:
-          size: large
-          color: "#00f5d4"
-        inputsPosition:
-          input:
-            x: 0
-            y: 0
-          __trigger:
-            x: 100
-            y: 0
-          to:
-            x: 31.131814813763125
-            y: -8.592651075331712
-          fro:
-            x: 0
-            y: 0
-          from:
-            x: 144.7530854317468
-            y: -5.7138909080928775
-        outputsPosition:
-          value:
-            x: 55.86983852195844
-            y: 668.558107173925
-        connections:
-          - from:
-              insId: Inline-value-inputs.value-bw347ir
-              pinId: value
-            to:
-              insId: __this
-              pinId: value
-          - from:
-              pinId: to
-              insId: __this
-            to:
-              insId: Inline-value-inputs.value-bw347ir
-              pinId: input
-          - from:
-              pinId: from
-              insId: __this
-            to:
-              insId: Inline-value-inputs.value-bw347ir
-              pinId: __trigger
-        completionOutputs:
-          - value
-      style:
-        size: small
-        color: "#00f5d4"
+      nodeId: InlineValue__Example-si24azf
+      macroId: InlineValue
+      macroData:
+        type: string
+        value: msgSent
+        label: '"msgSent"'
+    - pos:
+        x: 164.0967272949219
+        y: 345.4285197067261
+      id: Example-iv34ak2
+      inputConfig: {}
+      nodeId: InlineValue__Example-iv34ak2
+      macroId: InlineValue
+      macroData:
+        value: true
+        type: boolean
+        label: "true"
+    - pos:
+        x: -19.15166259765624
+        y: 519.1219120911946
+      id: eh24wqf1u33ce81xdoiorjra
+      inputConfig: {}
+      visibleInputs:
+        - id
+        - __trigger
+      nodeId: CodeExpression__eh24wqf1u33ce81xdoiorjra
+      macroId: CodeExpression
+      macroData:
+        value: inputs.id
+        label: '"id"'
+    - pos:
+        x: 111.09083740234371
+        y: -16.533597277330486
+      id: bozjlpho6biw54mjlxv8erfq
+      inputConfig: {}
+      nodeId: InlineValue__bozjlpho6biw54mjlxv8erfq
+      macroId: InlineValue
+      macroData:
+        value: true
+        type: boolean
+        label: "true"
   connections:
     - from:
-        insId: clktuq38o00004667pz3ycyuh
+        insId: t5vmev3g9uyojbj1zx8ulx3z
         pinId: value
       to:
-        insId: clktuqb3z00014667nmrjh0y6
-        pinId: value
+        insId: Get Global State-ye14al4
+        pinId: key
     - from:
-        insId: __this
-        pinId: message
-      to:
-        insId: Inline-value-interaction.rep-yq2478w
-        pinId: reply
-    - from:
-        insId: __this
-        pinId: message
-      to:
-        insId: Inline-value-interaction.fol-1g047b4
-        pinId: reply
-    - from:
-        insId: Inline-value-interaction.fol-1g047b4
+        insId: j3arzg3xftyxlz9s2exnrqz8
         pinId: value
       to:
-        insId: __this
-        pinId: response
+        insId: Get Global State-ye14al4
+        pinId: defaultValue
     - from:
-        insId: clktuqb3z00014667nmrjh0y6
-        pinId: "false"
+        insId: Example-si24azf
+        pinId: value
       to:
-        insId: Inline-value-interaction.rep-yq2478w
+        insId: Set Global State-co14acm
+        pinId: key
+    - from:
+        insId: Example-iv34ak2
+        pinId: value
+      to:
+        insId: Set Global State-co14acm
+        pinId: value
+    - from:
+        insId: rrzsladq390lg1mutayv6g8p
+        pinId: value
+      to:
+        insId: Set Global State-co14acm
         pinId: __trigger
     - from:
-        insId: clktuqb3z00014667nmrjh0y6
-        pinId: "true"
-      to:
-        insId: Inline-value-interaction.fol-1g047b4
-        pinId: __trigger
-    - from:
-        insId: Inline-value-interaction.rep-yq2478w
+        insId: rrzsladq390lg1mutayv6g8p
         pinId: value
       to:
-        insId: clktus68r00024667lldhgvg8
-        pinId: __trigger
+        insId: eh24wqf1u33ce81xdoiorjra
+        pinId: id
     - from:
-        insId: Transform To-3v047wd
-        pinId: value
-      to:
-        insId: __this
-        pinId: response
-    - from:
-        insId: clktus68r00024667lldhgvg8
+        insId: Set Global State-co14acm
         pinId: setValue
       to:
-        insId: Transform To-3v047wd
-        pinId: from
+        insId: eh24wqf1u33ce81xdoiorjra
+        pinId: __trigger
     - from:
-        insId: Inline-value-interaction.rep-yq2478w
+        insId: eh24wqf1u33ce81xdoiorjra
         pinId: value
       to:
-        insId: Transform To-3v047wd
-        pinId: to
+        insId: __this
+        pinId: response
+    - from:
+        insId: Example-mh04adr
+        pinId: value
+      to:
+        insId: __this
+        pinId: response
+    - from:
+        insId: j6adue3up7p0o88y6uw2nrq2
+        pinId: "true"
+      to:
+        insId: Example-mh04adr
+        pinId: __trigger
+    - from:
+        insId: j6adue3up7p0o88y6uw2nrq2
+        pinId: "false"
+      to:
+        insId: rrzsladq390lg1mutayv6g8p
+        pinId: __trigger
+    - from:
+        insId: __this
+        pinId: message
+      to:
+        insId: rrzsladq390lg1mutayv6g8p
+        pinId: reply
+    - from:
+        insId: __this
+        pinId: message
+      to:
+        insId: Example-mh04adr
+        pinId: reply
+    - from:
+        insId: Get Global State-ye14al4
+        pinId: value
+      to:
+        insId: j6adue3up7p0o88y6uw2nrq2
+        pinId: value
+    - from:
+        insId: bozjlpho6biw54mjlxv8erfq
+        pinId: value
+      to:
+        insId: j6adue3up7p0o88y6uw2nrq2
+        pinId: compareTo
   id: DiscordReply
   inputs:
     message:
@@ -281,15 +242,15 @@ node:
       delayed: false
   inputsPosition:
     message:
-      x: 91.26247101908291
-      y: -450.67707018665453
+      x: -280.48780639648436
+      y: -173.09474365234374
   outputsPosition:
     result:
       x: -23.264428942324532
       y: 237.25953921502617
     response:
-      x: -57.470763547641354
-      y: 814.0672850301144
+      x: -118.3984375
+      y: 688.7343682479859
   defaultStyle:
     size: large
     icon: fa-brands fa-discord

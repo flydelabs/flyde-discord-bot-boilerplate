@@ -1,12 +1,12 @@
 import assert from "assert";
 import { Client, GatewayIntentBits, REST, Routes } from "discord.js";
-import { commands } from "./scripts/load-commands.ts";
+import { commands } from "./load-commands.js";
 
 import { loadFlow } from "@flyde/runtime";
 
 const __filename = fileURLToPath(import.meta.url);
 
-const currDir = join(__filename, "..");
+const rootDir = join(__filename, "../..");
 
 import "dotenv/config";
 import { fileURLToPath } from "url";
@@ -54,8 +54,7 @@ client.on("interactionCreate", async (interaction) => {
 
   console.info(`Running command: ${interaction.commandName}`);
 
-  const execute = await loadFlow(command.handlerPath, currDir);
-
+  const execute = await loadFlow(command.handlerPath, rootDir);
   await execute({}, { extraContext: { interaction } }).result;
 
   console.info(`Finished running command: ${interaction.commandName}`);

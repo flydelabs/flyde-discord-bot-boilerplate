@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { DiscordCommandData } from "./generate-command.ts";
+import { DiscordCommandData } from "./scripts/generate-command.js";
 
 const __filename = fileURLToPath(import.meta.url);
 
